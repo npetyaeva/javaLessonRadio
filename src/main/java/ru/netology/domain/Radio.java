@@ -8,4 +8,12 @@ public class Radio {
         return currentNumberStation;
     }
 
+    public void setNextNumberStation() {
+        if (currentNumberStation == 9) {
+            this.currentNumberStation = 0;
+            return;
+        }
+        this.currentNumberStation += 1;
+    }
+
 }

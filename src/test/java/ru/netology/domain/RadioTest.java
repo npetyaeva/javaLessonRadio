@@ -8,12 +8,38 @@ class RadioTest {
 
     private final Radio radio = new Radio();
 
+    //getCurrentNumberStation()
     @Test
-    void getCurrentNumberStation() {
+    void souldGetCurrentNumberStation() {
 
-        int exprcted = 0;
+        int expected = 0;
         int actual = radio.getCurrentNumberStation();
-        assertEquals(exprcted, actual);
+        assertEquals(expected, actual);
+
+    }
+
+    //setNextNumberStation
+    @Test
+    void shouldSetNextNumberStation() {
+
+        int expected = 1;
+        radio.setNextNumberStation();
+        int actual = radio.getCurrentNumberStation();
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    void shouldSetNextNumberStationIfMax() {
+
+        int expected = 0;
+
+        for (int i = 0; i <= 9; i++) {
+            radio.setNextNumberStation();
+        }
+
+        int actual = radio.getCurrentNumberStation();
+        assertEquals(expected, actual);
 
     }
 }
