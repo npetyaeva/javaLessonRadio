@@ -16,4 +16,11 @@ public class Radio {
         this.currentNumberStation += 1;
     }
 
+    public void setPrevNumberStation() {
+        if (currentNumberStation == 0) {
+            this.currentNumberStation = 9;
+            return;
+        }
+        this.currentNumberStation -= 1;
+    }
 }

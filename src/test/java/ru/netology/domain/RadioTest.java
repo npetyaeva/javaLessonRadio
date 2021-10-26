@@ -42,4 +42,28 @@ class RadioTest {
         assertEquals(expected, actual);
 
     }
+
+    //setPrevNumberStation
+    @Test
+    void shouldSetPrevNumberStation() {
+
+        int expected = 5;
+
+        for (int i = 5; i > 0; i--) {
+            radio.setPrevNumberStation();
+        }
+
+        int actual = radio.getCurrentNumberStation();
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    void shouldSetPrevNumberStationIfMin() {
+
+        int expected = 9;
+        radio.setPrevNumberStation();
+        int actual = radio.getCurrentNumberStation();
+        assertEquals(expected, actual);
+    }
 }
