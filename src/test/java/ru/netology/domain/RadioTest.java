@@ -8,6 +8,8 @@ class RadioTest {
 
     private final Radio radio = new Radio();
 
+    //-----------NumberStation--------------
+
     //getCurrentNumberStation()
     @Test
     void souldGetCurrentNumberStation() {
@@ -33,11 +35,9 @@ class RadioTest {
     void shouldSetNextNumberStationIfMax() {
 
         int expected = 0;
-
         for (int i = 0; i <= 9; i++) {
             radio.setNextNumberStation();
         }
-
         int actual = radio.getCurrentNumberStation();
         assertEquals(expected, actual);
 
@@ -48,11 +48,9 @@ class RadioTest {
     void shouldSetPrevNumberStation() {
 
         int expected = 5;
-
         for (int i = 5; i > 0; i--) {
             radio.setPrevNumberStation();
         }
-
         int actual = radio.getCurrentNumberStation();
         assertEquals(expected, actual);
     }
@@ -140,4 +138,69 @@ class RadioTest {
         assertEquals(expected, actual);
     }
 
+    //----------------Volume------------------
+
+    //getCurrentVolume()
+    @Test
+    void souldGetCurrentVolume() {
+
+        int expected = 0;
+        int actual = radio.getCurrentVolume();
+        assertEquals(expected, actual);
+
+    }
+
+    //increaseVolume()
+    @Test
+    void shouldIncreaseVolume() {
+
+        int expected = 1;
+        radio.increaseVolume();
+        int actual = radio.getCurrentVolume();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldIncreaseVolumeBiggerMax() {
+
+        int expected = 10;
+        for (int i = 0; i <= 30; i++) {
+            radio.increaseVolume();
+        }
+        int actual = radio.getCurrentVolume();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldIncreaseVolumeLessMax() {
+
+        int expected = 10;
+        for (int i = 0; i <= 9; i++) {
+            radio.increaseVolume();
+        }
+        int actual = radio.getCurrentVolume();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldIncreaseVolumeMax() {
+
+        int expected = 10;
+        for (int i = 0; i <= 10; i++) {
+            radio.increaseVolume();
+        }
+        int actual = radio.getCurrentVolume();
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldIncreaseVolumeMoreMax() {
+
+        int expected = 10;
+        for (int i = 0; i <= 11; i++) {
+            radio.increaseVolume();
+        }
+        int actual = radio.getCurrentVolume();
+        assertEquals(expected, actual);
+    }
 }
