@@ -23,4 +23,12 @@ public class Radio {
         }
         this.currentNumberStation -= 1;
     }
+
+    public int setNumberStation(int currentNumberStation) {
+        if (currentNumberStation < 0 || currentNumberStation > 9) {
+            return this.currentNumberStation;
+        }
+        this.currentNumberStation = currentNumberStation;
+        return(this.currentNumberStation);
+    }
 }

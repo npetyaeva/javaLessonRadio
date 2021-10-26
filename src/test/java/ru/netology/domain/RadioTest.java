@@ -18,7 +18,7 @@ class RadioTest {
 
     }
 
-    //setNextNumberStation
+    //setNextNumberStation()
     @Test
     void shouldSetNextNumberStation() {
 
@@ -43,7 +43,7 @@ class RadioTest {
 
     }
 
-    //setPrevNumberStation
+    //setPrevNumberStation()
     @Test
     void shouldSetPrevNumberStation() {
 
@@ -55,7 +55,6 @@ class RadioTest {
 
         int actual = radio.getCurrentNumberStation();
         assertEquals(expected, actual);
-
     }
 
     @Test
@@ -66,4 +65,79 @@ class RadioTest {
         int actual = radio.getCurrentNumberStation();
         assertEquals(expected, actual);
     }
+
+
+    //setNumberStation()
+    @Test
+    void shouldSetNumberStation() {
+
+        int expected = 5;
+        int actual = radio.setNumberStation(5);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldSetNumberStationBiggerMax() {
+
+        int expected = radio.getCurrentNumberStation();
+        int actual = radio.setNumberStation(30);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldSetNumberStationMuchLessMin() {
+
+        int expected = radio.getCurrentNumberStation();
+        int actual = radio.setNumberStation(-30);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldSetNumberStationLessMin() {
+
+        int expected = radio.getCurrentNumberStation();
+        int actual = radio.setNumberStation(-1);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldSetNumberStationMin() {
+
+        int expected = 0;
+        int actual = radio.setNumberStation(0);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldSetNumberStationMoreMin() {
+
+        int expected = 1;
+        int actual = radio.setNumberStation(1);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldSetNumberStationLessMax() {
+
+        int expected = 8;
+        int actual = radio.setNumberStation(8);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldSetNumberStationMax() {
+
+        int expected = 9;
+        int actual = radio.setNumberStation(9);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldSetNumberStationMoreMax() {
+
+        int expected = radio.getCurrentNumberStation();
+        int actual = radio.setNumberStation(10);
+        assertEquals(expected, actual);
+    }
+
 }
