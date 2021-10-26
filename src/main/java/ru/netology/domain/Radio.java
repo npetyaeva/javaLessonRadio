@@ -42,7 +42,12 @@ public class Radio {
 
     public void increaseVolume() {
         if (currentVolume < volumeMax) {
-            currentVolume = currentVolume + 1;
+            currentVolume += 1;
+        }
+    }
+    public void decreaseVolume() {
+        if (currentVolume > volumeMin) {
+            currentVolume -= 1;
         }
     }
 }
