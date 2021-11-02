@@ -226,9 +226,7 @@ class RadioTest {
     @Test
     void shouldIncreaseVolumeMoreMin() {
         int expected = 0;
-        for (int i = 0; i < 1; i++) {
-            radio.increaseVolume();
-        }
+        radio.setCurrentVolume(1);
         radio.decreaseVolume();
         int actual = radio.getCurrentVolume();
         assertEquals(expected, actual);
