@@ -7,10 +7,9 @@ import static org.junit.jupiter.api.Assertions.*;
 class RadioTest {
 
     private final Radio radio = new Radio();
-    private final Radio radioChangeMaxNumberStation = new Radio(50);
+    private final Radio radio1 = new Radio(50);
 
     //-----------NumberStation--------------
-
     //getCurrentNumberStation()
     @Test
     void shouldGetCurrentNumberStation() {
@@ -21,6 +20,7 @@ class RadioTest {
     }
 
     //setNextNumberStation()
+    //---------firstConstructor-----------
     @Test
     void shouldSetNextNumberStation() {
         int expected = 1;
@@ -36,6 +36,27 @@ class RadioTest {
         radio.setCurrentNumberStation(radio.getNumberStationMax());
         radio.setNextNumberStation();
         int actual = radio.getCurrentNumberStation();
+        assertEquals(expected, actual);
+
+    }
+
+    //---------secondConstructor-----------
+
+    @Test
+    void shouldSetNextNumberStation1() {
+        int expected = 1;
+        radio1.setNextNumberStation();
+        int actual = radio1.getCurrentNumberStation();
+        assertEquals(expected, actual);
+
+    }
+
+    @Test
+    void shouldSetNextNumberStationIfMax1() {
+        int expected = radio1.getNumberStationMin();
+        radio1.setCurrentNumberStation(radio1.getNumberStationMax());
+        radio1.setNextNumberStation();
+        int actual = radio1.getCurrentNumberStation();
         assertEquals(expected, actual);
 
     }
@@ -60,6 +81,7 @@ class RadioTest {
 
 
     //setNumberStation()
+    //---------firstConstructor-----------
     @Test
     void shouldSetNumberStation() {
         int expected = 5;
@@ -118,6 +140,29 @@ class RadioTest {
 
     @Test
     void shouldSetNumberStationMoreMax() {
+        int expected = radio.getCurrentNumberStation();
+        int actual = radio.setNumberStation(radio.getNumberStationMax() + 1);
+        assertEquals(expected, actual);
+    }
+
+    //---------secondConstructor-----------
+
+    @Test
+    void shouldSetNumberStationLessMax1() {
+        int expected = radio1.getNumberStationMax() - 1;
+        int actual = radio1.setNumberStation(radio1.getNumberStationMax() - 1);
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldSetNumberStationMax1() {
+        int expected = radio1.getNumberStationMax();
+        int actual = radio1.setNumberStation(radio1.getNumberStationMax());
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    void shouldSetNumberStationMoreMax1() {
         int expected = radio.getCurrentNumberStation();
         int actual = radio.setNumberStation(radio.getNumberStationMax() + 1);
         assertEquals(expected, actual);
