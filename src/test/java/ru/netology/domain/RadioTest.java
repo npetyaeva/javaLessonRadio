@@ -126,14 +126,14 @@ class RadioTest {
 
     @Test
     void shouldSetNumberStationLessMax() {
-        int expected = 9;
+        int expected = 8;
         int actual = radio.setNumberStation(radio.getNumberStationMax() - 1);
         assertEquals(expected, actual);
     }
 
     @Test
     void shouldSetNumberStationMax() {
-        int expected = 10;
+        int expected = 9;
         int actual = radio.setNumberStation(radio.getNumberStationMax());
         assertEquals(expected, actual);
     }
