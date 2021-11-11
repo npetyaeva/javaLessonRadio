@@ -23,7 +23,7 @@ public class Radio {
 
     public int getNumberStationMin() { return numberStationMin; }
 
-    public int getNumberStationMax() { return numberStationMax - 1; }
+    public int getNumberStationMax() { return (numberStationMax - 1); }
 
     public void setCurrentNumberStation(int currentNumberStation) {
         this.currentNumberStation = currentNumberStation;
