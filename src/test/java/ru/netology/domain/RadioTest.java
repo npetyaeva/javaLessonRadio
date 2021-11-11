@@ -6,8 +6,8 @@ import static org.junit.jupiter.api.Assertions.*;
 
 class RadioTest {
 
-    private final Radio radio = new Radio();
-    private final Radio radio1 = new Radio(50);
+    private Radio radio = new Radio();
+    private Radio radio1 = new Radio(50);
 
     //-----------NumberStation--------------
     //getCurrentNumberStation()
